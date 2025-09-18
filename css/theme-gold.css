@@ -1,0 +1,120 @@
+body {
+    font-family: 'Oxanium', sans-serif;
+    background: linear-gradient(135deg, #d4af37, #222222);
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    padding: 50px;
+    background-color: #665500cc;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+h2 {
+    color: #e6c200;
+    font-size: 2rem;
+}
+
+.search-bar {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    width: 60%;
+    max-width: 500px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.game-link {
+    background-color: #222222;
+    border-radius: 12px;
+    padding: 15px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, background-color 0.3s;
+    border: 2px solid #ffd700;
+}
+
+.game-link:hover {
+    transform: translateY(-5px);
+    background-color: #b8860b;
+}
+
+.game-title {
+    font-size: 1rem;
+    color: #ffd700;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pin-button {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #e6c200;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #111;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer a {
+    color: #e6c200;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+footer a:hover {
+    color: #ffd700;
+}
+
+@media (max-width: 600px) {
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    .game-link {
+        height: 100px;
+    }
+
+    .game-title {
+        font-size: 0.9rem;
+    }
+}

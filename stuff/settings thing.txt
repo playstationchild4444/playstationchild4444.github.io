@@ -1,0 +1,107 @@
+<script>
+        function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+}
+</script>
+<!--    cookies!    --><!--
+    <script>
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        document.cookie = name + '=; Max-Age=-99999999;';
+    }
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkMode = getCookie('darkMode');
+
+        if (darkMode === 'enabled') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        darkModeToggle.addEventListener('change', function () {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                setCookie('darkMode', 'enabled', 365);
+            } else {
+                document.body.classList.remove('dark-mode');
+                setCookie('darkMode', 'disabled', 365);
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar">
+  <h2>Settings</h2>
+  <label class="switch">
+  <input type="checkbox" id="dark-mode-toggle" checked>
+  <span class="slider"></span>
+  Dark Mode
+</label>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider"></span>
+    Notifications
+    <label class="switch">
+    <input type="checkbox" onclick="stopsitenamething()">
+    <span class="slider"></span>
+      Stop Site Name Change Thing
+  </label>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider"></span>
+    Sound
+  </label>
+  <button id="closeBtn">Close</button>
+</div>
+
+    <button id="openBtn">Settings</button>
+<script>
+  document.getElementById('darkModeToggle').addEventListener('change', function() {
+    if (this.checked) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  });
+
+  // Ensure the dark mode is enabled on page load
+  if (document.getElementById('darkModeToggle').checked) {
+    document.body.classList.add('dark-mode');
+  }
+</script>

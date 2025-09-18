@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Artificial Smartness</title>
+        <link rel="icon" type="image/jpg" href="favicon.jpg?v2" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/style.css">
+        <style>
+            body {
+                color: #2a2a2a;
+                font-family: 'Press Start 2P';
+            }
+            #user-input {
+                color: #379cf4;
+                width: calc(100% - 110px);
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <center><h1>OpenAI Chatbot</h1></center><br>
+        <script>
+       async function fetch_response(inputText, apiKey) {
+    const url = "https://api.openai.com/v1/chat/completions";
+    
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: [{"role": "system", "content": "You are an AI chatbot."}, {"role": "user", "content": inputText}]
+            })
+        });
+
+        if (!response.ok) {
+            console.error(`HTTP error! Status: ${response.status}`);
+            window.postMessage(JSON.stringify({ type: "response_error", text: `Error: ${response.statusText}` }));
+            return;
+        }
+ 
+        const data = await response.json();
+        console.log(data);
+
+        if (data.choices && data.choices[0] && data.choices[0].message) {
+            const resultText = data.choices[0].message.content.trim();
+            window.postMessage(JSON.stringify({ type: "response_message", text: resultText }));
+        } else {
+            console.error("Unexpected response structure:", data);
+            window.postMessage(JSON.stringify({ type: "response_error", text: "Sorry, I couldn't process the response. Please say it again" }));
+        }
+    } catch (error) {
+        console.error("Error fetching response:", error);
+        window.postMessage(JSON.stringify({ type: "response_error", text: "An error occurred while fetching the response." }));
+    }
+}
+
+        </script>
+        
+      <div id="chat-container">
+                <input type="text" id="user-input" placeholder="Type your message here...">
+            <div id="chat-log"></div>
+            <button id="send-btn">Send</button>
+        </div>
+    </body>
+        </html>

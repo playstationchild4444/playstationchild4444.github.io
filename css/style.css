@@ -1,0 +1,232 @@
+body {
+    font-family: 'Oxanium', sans-serif;
+    background: linear-gradient(135deg, #4f4f9f, #222222);
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.game-link-other {
+    display: inline-block;
+    width: 100px;
+    white-space: nowrap;
+    font-weight: bold;
+    margin: 7px 30px; 
+    transition: color 0.3s;
+    color: #838dff;
+
+}
+
+.theme-default .game-link-other {
+    color: #838dff;
+}
+
+.theme-blue .game-link-other {
+    color: #00ccff;
+}
+
+.theme-green .game-link-other {
+    color: #00ff00;
+}
+
+.theme-gold .game-link-other {
+    color: #ffd700;
+}
+
+.theme-red .game-link-other {
+    color: #ff3300;
+}
+
+.theme-kawaii .game-link-other {
+    color: #ffb6c1;
+}
+
+.theme-invisible .game-link-other {
+    color: #a1a1a1;
+}
+header {
+    padding: 50px;
+    background-color: #000000cc;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #f7ff3c;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+h2 {
+    color: #ffd700;
+    font-size: 2rem;
+}
+
+.search-bar {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    width: 60%;
+    max-width: 500px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
+    gap: 15px; 
+    justify-content: center;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.game-link {
+    background-color: #333;
+    border-radius: 12px;
+    padding: 15px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, background-color 0.3s;
+    border: 2px solid #f7ff3c;
+}
+
+.game-link:hover {
+    transform: translateY(-5px);
+    background-color: #555;
+}
+
+.game-title {
+    font-size: 1rem;
+    color: #f7ff3c;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pin-button {
+    display: block;
+    width: 15px; 
+    height: 15px; 
+    background-color: #ffd700;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #111;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+footer a:hover {
+    color: #f7ff3c;
+}
+
+button.bloeth {
+    background-color: #333;
+    color: white;
+    border: 2px solid #f7ff3c;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.bloeth:hover {
+    background-color: #555;
+    color: #ffd700;
+}
+
+button.bloeth:active {
+    background-color: #222;
+    color: #f7ff3c;
+}
+
+.theme-switcher button {
+    background-color: #333;
+    color: white;
+    border: 2px solid #f7ff3c;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-switcher button.default:hover,
+.theme-switcher button.default:active {
+    background-color: #605f5a;
+    color: #ffffffcc;
+}
+
+.theme-switcher button.blue:hover,
+.theme-switcher button.blue:active {
+    background-color: #00ccff;
+    color: #000040cc;
+}
+
+.theme-switcher button.green:hover,
+.theme-switcher button.green:active {
+    background-color: #00ff00;
+    color: #000000;
+}
+
+.theme-switcher button.gold:hover,
+.theme-switcher button.gold:active {
+    background-color: #ffd700;
+    color: #333333;
+}
+
+.theme-switcher button.red:hover,
+.theme-switcher button.red:active {
+    background-color: #ff3300;
+    color: #400000cc;
+}
+
+.theme-switcher button.kawaii:hover,
+.theme-switcher button.kawaii:active {
+    background-color: #ffb6c1cc;
+    color: #ff4d6d;
+}
+
+.theme-switcher button.invisible:hover,
+.theme-switcher button.invisible:active {
+    background-color: #ffffff;
+    color: #a1a1a1;
+    
+}
+
+@media (max-width: 600px) {
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); 
+    }
+
+    .game-link {
+        height: 100px; 
+    }
+
+    .game-title {
+        font-size: 0.9rem; 
+    }
+}
+

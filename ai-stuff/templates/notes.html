@@ -1,0 +1,27 @@
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Notes</title>
+        <link rel="stylesheet" href="../static/style.css">
+        <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+      </head>
+      <body>
+        <main>            
+
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+        
+            <!--<script src="../../notes.json"></script>
+            <script src="../../main.js"></script>-->
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            {% for NOTE in NOTES %}
+             <div> {{ NOTE }} </div>
+            {% endfor %}
+          </div>
+        </div>
+          </body>
+    </html>

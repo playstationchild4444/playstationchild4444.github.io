@@ -1,0 +1,38 @@
+#when i add the ai, this will become usefull
+ name: Run tests
+
+ on:
+   push:
+     branches:
+       - main
+   pull_request:
+     branches:
+       - main
+
+ jobs:
+   test:
+     runs-on: ubuntu-latest
+
+     steps:
+     - name: Check out repository
+       uses: actions/checkout@v2
+
+     - name: Set up Python
+       uses: actions/setup-python@v2
+       with:
+         python-version: '3.8'
+
+     - name: Install dependencies
+       run: |
+         python -m pip install --upgrade pip
+         pip install nbdev   Install nbdev here
+
+     - name: Verify nbdev installation
+       run: |
+         nbdev_help   This checks if nbdev is properly installed
+
+     - name: Run tests
+       env:
+         CHAT_GBT_API: ${{ secrets.CHAT_GBT_API }}
+       run: |
+         nbdev_test_nbs   Run nbdev tests
